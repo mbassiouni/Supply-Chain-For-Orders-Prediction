@@ -1,0 +1,14 @@
+load 'TrainSmallerData.mat';
+load 'TestSmallerData.mat';
+load 'TrainClasses.mat';
+load 'TestClasses.mat';
+AllData = [ExcelSmallDataSmaller;ExcelSmallDataSmallerTest];
+AllClasses = [TrainClasses;TestClasses];
+AllData = repmat(AllData,180,1);
+AllClasses = repmat(AllClasses,180,1);
+AllData = [AllData;AllData(179482:end,1:9)];
+AllClasses = [AllClasses;AllClasses(179482:end,1)];
+ExcelSmallDataSmaller = AllData(1: 108312,1:9);
+TrainClasses = AllClasses(1: 108312,1);
+ExcelSmallDataSmallerTest = AllData(108313:end,1:9);
+TestClasses = AllClasses(108313:end,1);

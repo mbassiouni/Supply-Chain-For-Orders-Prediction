@@ -1,0 +1,25 @@
+%load 'MLModels.mat';
+%load 'SimpleModel.mat';
+%load 'SimpleModel.mat';
+%load 'DeepModel.mat';
+load '1DCNNModel.mat';
+figure;
+[P1, T1] = convertlabels( Softmax1DCNNPred(:,1),Softmax1DCNNPred(:,2));
+plotconfusion(categorical(P1),categorical(T1));
+figure;
+[P2, T2] = convertlabels( RandomTree1DCNNPred(:,1),RandomTree1DCNNPred(:,2));
+plotconfusion(categorical(P2),categorical(T2));
+figure;
+[P3, T3] = convertlabels( RandomForest1DCNNPred(:,1),RandomForest1DCNNPred(:,2));
+plotconfusion(categorical(P3),categorical(T3));
+figure;
+[P4, T4] = convertlabels( KNN1DCNNPred(:,1),KNN1DCNNPred(:,2));
+plotconfusion(categorical(P4),categorical(T4));
+figure;
+[P5, T5] = convertlabels( MLP1DCNNPred(:,1),MLP1DCNNPred(:,2));
+plotconfusion(categorical(P5),categorical(T5));
+figure;
+%load 'lastSVMdeep.mat';
+[P6, T6] = convertlabels( SVM1DCNNPred(:,1),SVM1DCNNPred(:,2));
+plotconfusion(categorical(P6),categorical(T6));
+
